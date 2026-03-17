@@ -16,3 +16,5 @@ El programa calcula:
 El programa limite:
 - Velocidades negativas
 - Angulos negativos y mayores a 90°
+
+**Proximamente modificaciones**
