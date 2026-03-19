@@ -28,3 +28,5 @@ De forma tal que los pogamos en un data frame, con un tiempo de 0<time<100.
 Luego podamos visualizar en columnas y filas, para guardarlo en un csv.
 
 El programa utiliza valores no reales a un vuelo, solo es a modo de practica.
+
+El programa, tiene funcion de seno, para poder amorgiuar y ver el comportamiento cuando sube y baja, al subir o bajar la altitud, este hara que modifica la velocidad, ya que todas son funciones.
