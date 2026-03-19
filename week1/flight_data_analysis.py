@@ -1,20 +1,28 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def data_values(time):  #Generamos los datos
-
-    velocity = 200
-    fuel_flow = 100 - .5*velocity
-
+    altitud_ref = 1000
+    altitud_base = 1000
+    altitud_amplitude = 100    #cuanto sube/baja
+    velocity_base = 200
+    altitud = altitud_base + altitud_amplitude * np.sin(0.5 * time) #altitud en funcion del tiempo. Frecuencia 0.5 que tan rapido
+    velocity = (velocity_base + 10 * (altitud - altitud_ref))
+    fuel_flow = 100 + .5*velocity**2
+    
     data ={                     #Genero columnas de datos
         "Time"      :   time,
-        "Altitud"   :   1000    + (0.5*np.sin(time/50)),
+        "Altitud"   :   altitud,
         "Velocity"  :   velocity,
         "Fuel_flow" :   fuel_flow       
     }                    
     df = pd.DataFrame(data) #Hacemos un dataframe con los datos
-    return(df)
+    plt.plot(time,velocity)
+    plt.grid()
+    fig = plt.show()
+    return(df, fig)
 
 def mean_values(df):    #funcion para promedios
     
@@ -38,6 +46,6 @@ def main():
     print ("-Altura menos a 1100")
     print(alto.head())
     df.to_csv("flight_data_anallysis.csv", index=False) #False evita que se guarden los numeros iniciales innecesarios
-
+    
 
 main()
