@@ -19,8 +19,8 @@ def data_values(time):  #Generamos los datos
         "Fuel_flow" :   fuel_flow       
     }                    
     df = pd.DataFrame(data) #Hacemos un dataframe con los datos
-    plt.plot(time,velocity)
-    plt.grid()
+    #plt.plot(time,velocity)
+    #plt.grid()
     fig = plt.show()
     df_to_csv = df.to_csv("flight_project/data/Flight_data.csv", index=False) #Hacemos el Csv
-    return(df, fig, df_to_csv)
+    return(df, df_to_csv)
